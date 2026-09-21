@@ -55,7 +55,8 @@ Edite **apenas o `dados.js`**. Ele já vem com um exemplo completo, comentado. T
 | `parking` | Assuntos citados e não endereçados |
 | `fechamento` | O retrato do fim: o que saiu, o que ficou aberto, compromissos por pessoa |
 | `sintese` | A leitura cruzada feita antes da imersão |
-| `referencias` | Material de apoio |
+| `pesquisas` | Pesquisa externa por tema, cada uma terminando numa pergunta para o grupo |
+| `referencias` | As leituras de origem, com link |
 
 Duas regras que evitam dor de cabeça:
 
@@ -76,11 +77,32 @@ O painel é projetado na tela e alguém marca conforme o grupo decide. Os dados 
 
 No menu **Dados**:
 
-- **Exportar (.json)** salva tudo o que foi marcado. Sirva para guardar ou para passar o estado para outra pessoa.
+- **Exportar (.json)** salva tudo o que foi marcado. Serve para guardar ou para passar o estado para outra pessoa.
 - **Importar (.json)** carrega um arquivo exportado.
 - **Exportar resumo (.txt)** gera um texto corrido com as decisões (status, dono, prazo, próximo passo) e a triagem das ideias. É a base da ata.
 
 **Limpar tudo**, no rodapé, zera o que foi marcado neste navegador. Pede confirmação.
+
+---
+
+## Já vem com pesquisa
+
+A aba **Pesquisas** chega preenchida com o que consultorias, universidades e institutos mediram sobre seis problemas que costumam aparecer numa imersão:
+
+| Tema | O número que abre a conversa |
+|---|---|
+| Execução: por que o que foi decidido não chega ao fim | 84% contam com o chefe, só 9% com colegas de outras áreas (HBR) |
+| Decidir com velocidade | decidir com cerca de 70% da informação (Bezos) |
+| Serviço e produto: o limite do sob medida | serviço trava perto de 40% de margem, produto opera entre 60% e 90% (HBR) |
+| Preço: a alavanca que ninguém mexe | 1% no preço move cerca de 11% do lucro operacional (HBR) |
+| Comercial e autoridade | 95% do mercado não está comprando agora (LinkedIn B2B Institute) |
+| Transformação com IA: ferramenta ou redesenho | redesenhar o trabalho multiplica por 5,3 a chance de capturar valor (McKinsey) |
+
+Cada tema traz a tese, os dados com a fonte, os frameworks e uma **pergunta para a imersão**. A pergunta é deliberadamente aberta: a pesquisa informa a conversa, não dá a resposta.
+
+**Sobre as fontes.** Dados com link foram conferidos na fonte original. Dados sem link vêm de fontes que bloqueiam acesso automatizado ou que são livros e relatórios fechados: busque pelo nome antes de citar em público. A aba **Leituras** reúne os textos de origem; alguns exigem assinatura para ler inteiros.
+
+Para trocar ou acrescentar temas, edite o bloco `pesquisas` em `dados.js`.
 
 ---
 

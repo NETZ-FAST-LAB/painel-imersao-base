@@ -35,6 +35,7 @@
     parking:    viewParking,
     sintese:    viewSintese,
     ideias:     viewIdeias,
+    pesquisas:  viewPesquisas,
     referencias:viewReferencias,
   };
   const GRUPOS = (P.grupos || []).map(g => ({ ...g, abas: g.abas.filter(a => VIEWS[a.id]) }))
@@ -275,6 +276,28 @@
     }
     if (S.ordem) h += `<div class="sec-label">A ordem</div><div class="ordem">${esc(S.ordem)}</div>`;
     return h;
+  }
+
+  // Pesquisa externa: tese, dados com fonte, frameworks e a pergunta que ela
+  // devolve para o grupo. Dado com url foi conferido na fonte; sem url, buscar
+  // pelo nome antes de citar.
+  function viewPesquisas() {
+    const Q = P.pesquisas || {};
+    if (!(Q.itens || []).length) return `<p class="vazio">Nenhuma pesquisa cadastrada em dados.js.</p>`;
+    return intro(Q.intro) + `<div class="pesq-grid">` + lista(Q.itens, (q, i) =>
+      `<article class="pesq-card" id="${esc(q.id || "p" + (i + 1))}">
+        <div class="pesq-top">
+          <span class="pesq-n">${String(i + 1).padStart(2, "0")}</span>
+          ${q.destaque ? `<span class="pesq-destaque">${esc(q.destaque)}</span>` : ""}
+        </div>
+        <h3 class="pesq-titulo">${esc(q.titulo)}</h3>
+        ${q.pergunta ? `<div class="pesq-sub">${esc(q.pergunta)}</div>` : ""}
+        ${q.tese ? `<p class="pesq-tese">${esc(q.tese)}</p>` : ""}
+        ${q.dados && q.dados.length ? `<ul class="pesq-dados">${lista(q.dados, d =>
+          `<li><span class="pesq-fonte">${d.url ? `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.fonte)} ↗</a>` : esc(d.fonte)}</span>${esc(d.texto)}</li>`)}</ul>` : ""}
+        ${q.frameworks ? `<div class="pesq-fw"><span class="pesq-label">Frameworks</span>${esc(q.frameworks)}</div>` : ""}
+        ${q.paraImersao ? `<div class="pesq-imersao"><span class="pesq-label">Para a imersão</span>${esc(q.paraImersao)}</div>` : ""}
+      </article>`) + `</div>`;
   }
 
   function viewReferencias() {
